@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<constant name="struts.enable.DynamicMethodInvocation" value="true"></constant> 
+	
+	<package name="userpackage" extends="struts-default,json-default">
+		<action name="user_*" class="com.qhit.gr3.lpy.common.action.UserAction" method="{1}">
+			<result name="loginSuccess">/jsp/home.jsp</result>
+			<result name="loginFail">index.jsp</result>
+			<result name="tolist" type="redirectAction">user_getAll</result>
+			<result name="update">/jsp/UpdateUser.jsp</result>
+			<result name="add">/jsp/addUser.jsp</result>
+			<result name="outSuccess">index.jsp</result>
+		</action>
+	</package>
+	 <include file="com/qhit/gr3/lpy/questions/config/question.xml"/>
+    <include file="com/qhit/gr3/lpy/online/config/paper.xml"/>
+    <include file="com/qhit/gr3/lpy/typeManage/config/course.xml"/>
+</struts>
